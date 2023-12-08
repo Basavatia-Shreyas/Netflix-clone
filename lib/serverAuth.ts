@@ -11,7 +11,7 @@ const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
 
     //Check if session exists
     if (!session?.user?.email) {
-        throw new Error('Not signed in session');
+        throw new Error('Not signed in');
     }
 
     //Get current user from email from session

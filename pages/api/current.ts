@@ -5,7 +5,7 @@ import serverAuth from "@/lib/serverAuth";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         if (req.method !== 'GET') {
-            return res.status(400).end();
+            return res.status(405).end();
         }
 
         //Reusing serverAuth to check if user exists
@@ -15,6 +15,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } catch (error) {
         //If serverAuth throws an error, it will be caught here 
         console.log(error);
-        return res.status(400).end();
+        return res.status(500).end();
     }
 }
